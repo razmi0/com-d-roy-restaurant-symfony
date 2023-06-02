@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,18 @@ class Category
 
     #[ORM\Column(length: 80, nullable: true)]
     private ?string $picture = null;
+
+    #[ORM\ManyToMany(targetEntity: Menu::class, mappedBy: 'category')]
+    private Collection $menus;
+
+    #[ORM\ManyToMany(targetEntity: Item::class, inversedBy: 'categories')]
+    private Collection $item;
+
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+        $this->item = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +89,57 @@ class Category
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): self
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus->add($menu);
+            $menu->addCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): self
+    {
+        if ($this->menus->removeElement($menu)) {
+            $menu->removeCategory($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItem(): Collection
+    {
+        return $this->item;
+    }
+
+    public function addItem(Item $item): self
+    {
+        if (!$this->item->contains($item)) {
+            $this->item->add($item);
+        }
+
+        return $this;
+    }
+
+    public function removeItem(Item $item): self
+    {
+        $this->item->removeElement($item);
 
         return $this;
     }
