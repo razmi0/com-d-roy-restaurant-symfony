@@ -31,6 +31,9 @@ class Item
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'item')]
     private Collection $categories;
 
+    #[ORM\Column(length: 50)]
+    private ?string $slug = null;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -53,12 +56,12 @@ class Item
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): self
+    public function setPrice(float $price): self
     {
         $this->price = $price;
 
@@ -112,6 +115,18 @@ class Item
         if ($this->categories->removeElement($category)) {
             $category->removeItem($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
