@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Item;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -19,15 +20,14 @@ class ItemCrudController extends AbstractCrudController
         return Item::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
-            ImageField::new('picture'),
+            ImageField::new('picture')->setUploadDir('public/uploads/images/')->setRequired('false')->setUploadedFileNamePattern('[randomhash].[extension]'),
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('EUR'),
-            AssociationField::new('category'),
+            ChoiceField::new('category'),
         ];
     }
 }
