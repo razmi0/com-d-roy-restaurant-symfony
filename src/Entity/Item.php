@@ -19,8 +19,10 @@ class Item
     #[ORM\Column(length: 80)]
     private ?string $name = null;
 
-    #[ORM\Column]
+    /*#[ORM\Column]
     private ?int $price = null;
+
+    */
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
@@ -33,6 +35,9 @@ class Item
 
     #[ORM\Column(length: 50)]
     private ?string $slug = null;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
+    private ?string $price = null;
 
     public function __construct()
     {
@@ -56,6 +61,7 @@ class Item
         return $this;
     }
 
+    /*
     public function getPrice(): ?float
     {
         return $this->price;
@@ -67,6 +73,7 @@ class Item
 
         return $this;
     }
+    */
 
     public function getDescription(): ?string
     {
@@ -127,6 +134,18 @@ class Item
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPrice(): ?string
+    {
+        return $this->price;
+    }
+
+    public function setPrice(string $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

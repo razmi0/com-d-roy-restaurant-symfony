@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use phpDocumentor\Reflection\Type;
 
 class ItemCrudController extends AbstractCrudController
 {
@@ -25,8 +26,8 @@ class ItemCrudController extends AbstractCrudController
             TextField::new('name'),
             ImageField::new('picture'),
             TextareaField::new('description'),
-            MoneyField::new('price'),
-            AssociationField::new('category')
+            MoneyField::new('price')->setCurrency('EUR'),
+            AssociationField::new('category'),
         ];
     }
 }
