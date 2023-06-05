@@ -17,6 +17,7 @@ class ItemType extends AbstractType
             ->add('price', MoneyType::class)
             ->add('description')
             ->add('picture')
+            ->add('category')
         ;
     }
 

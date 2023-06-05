@@ -39,9 +39,13 @@ class Item
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
     private ?string $price = null;
 
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'items')]
+    private Collection $category;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->category = new ArrayCollection();
     }
 
     public function getId(): ?int

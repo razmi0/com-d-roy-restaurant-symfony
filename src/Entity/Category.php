@@ -32,12 +32,17 @@ class Category
     private Collection $menus;
 
     #[ORM\ManyToMany(targetEntity: Item::class, inversedBy: 'categories')]
+
     private Collection $item;
+
+    #[ORM\ManyToMany(targetEntity: Item::class, mappedBy: 'category')]
+    private Collection $items;
 
     public function __construct()
     {
         $this->menus = new ArrayCollection();
         $this->item = new ArrayCollection();
+        $this->items = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,5 +147,13 @@ class Category
         $this->item->removeElement($item);
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Item>
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
     }
 }
