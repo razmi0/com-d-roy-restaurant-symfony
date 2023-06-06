@@ -33,8 +33,8 @@ class ItemCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[randomhash],[extension]')
                 ->setRequired(false),
             TextareaField::new('description'),
-            MoneyField::new('price')->setCurrency('EUR'),
-            ChoiceField::new('category')
+            MoneyField::new('price')->setCurrency('EUR')->setStoredAsCents(false),
+            AssociationField::new('categories')
         ];
     }
 }
