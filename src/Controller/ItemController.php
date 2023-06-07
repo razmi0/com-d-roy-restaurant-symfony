@@ -3,21 +3,46 @@
 namespace App\Controller;
 
 use App\Entity\Item;
-use App\Form\ItemType;
 use App\Repository\ItemRepository;
+use App\Form\ItemType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/item')]
+#[Route('/produits')]
 class ItemController extends AbstractController
 {
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface  $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     #[Route('/', name: 'app_item_index', methods: ['GET'])]
     public function index(ItemRepository $itemRepository): Response
     {
+        $items = $this->entityManager->getRepository(Item::class)->findAll();
+
+
         return $this->render('item/index.html.twig', [
-            'items' => $itemRepository->findAll(),
+            'items' => $items
+        ]);
+    }
+
+    #[Route('/{slug}', name: 'app_item_show')]
+    public function show($slug): Response
+    {
+        $item = $this->entityManager->getRepository(Item::class)->findOneBySlug($slug);
+
+        if(!$item) {
+            return $this->redirectToRoute('app_item_index');
+        }
+
+        return $this->render('item/show.html.twig', [
+            'item' => $item,
         ]);
     }
 
@@ -40,13 +65,6 @@ class ItemController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_item_show', methods: ['GET'])]
-    public function show(Item $item): Response
-    {
-        return $this->render('item/show.html.twig', [
-            'item' => $item,
-        ]);
-    }
 
     #[Route('/{id}/edit', name: 'app_item_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Item $item, ItemRepository $itemRepository): Response
