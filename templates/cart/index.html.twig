@@ -7,6 +7,7 @@
     <h1>Mon panier</h1>
     <p>Retrouver l'ensemble de vos produits</p>
 
+    {% if cart | length > 0 %}
     <table class="table mt-3">
         <thead>
         <tr>
@@ -27,20 +28,37 @@
             <td>{{ item.item.name }}<br/>
                 <small>{{ item.item.description }}</small>
             </td>
-            <td>x {{ item.quantity }}</td>
+            <td>
+                <a href="{{ path('decrease_to_cart', {id : item.item.id }) }}">
+            <img src="{{ asset('assets/minus.png') }}" height="18px" alt="supprimer un produit">
+                </a>
+            x {{ item.quantity }}
+                <a href="{{ path('add_to_cart' , {id : item.item.id }) }}">
+            <img src="{{ asset('assets/add.png') }}" height="18px" alt="ajouter un produit">
+                </a>
+            </td>
             <td>{{ item.item.price }} € </td>
             <td>{{ ((item.item.price * item.quantity )) }} € </td>
+            <td>
+                <a href="{{ path('delete_to_cart', {id : item.item.id }) }}">
+                <img src="{{ asset('assets/trash.png') }}" height="18px" alt="supprimer mon produit">
+        </a>
+            </td>
         </tr>
-        </tbody>
         {% set total = total + (item.item.price * item.quantity ) %}
         {% endfor %}
+        </tbody>
 
     </table>
     <div class="text-right">
         <b class="text-white">Nombre de produits :  {{ cart | length }} </b> <br/>
-        <b class="text-white">Total de mon panier : {{ ( total) }} €</b>
+        <b class="text-white">Total de mon panier : {{ ( total) }} €</b><br />
 
-        <a href="" class="btn btn-success btn-black">Valider mon panier</a>
+        <a href="" class="btn btn-success btn-black mt-4">Valider mon panier</a>
     </div>
+    {% else %}
+        <hr>
+        <b class="text-white">Votre panier est vide</b>
+    {% endif %}
 
 {% endblock %}

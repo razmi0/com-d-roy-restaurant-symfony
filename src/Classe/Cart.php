@@ -2,6 +2,7 @@
 
 namespace App\Classe;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Cart
@@ -9,7 +10,7 @@ class Cart
 {
     private $session;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(EntityManagerInterface $entityManager, SessionInterface $session)
     {
         $this->session = $session;
     }
@@ -34,5 +35,25 @@ class Cart
     public function remove()
     {
         return $this->session->remove('cart');
+    }
+
+    public function delete($id)
+    {
+        $cart = $this->session->get('cart', []);
+
+        unset($cart[$id]);
+
+        return $this->session->set('cart', $cart);
+    }
+
+    public function decrease($id)
+    {
+        $cart = $this->session->get('cart', []);
+        if($cart[$id] > 1) {
+            $cart[$id]--;
+        } else {
+            unset($cart[$id]);
+        }
+        return $this->session->set('cart', $cart);
     }
 }
