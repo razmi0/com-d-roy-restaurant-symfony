@@ -32,7 +32,6 @@
 /bazel-out
 /public/build/
 /public/bundles/
-/public/uploads/
 /var/
 
 # Bundle developpement
