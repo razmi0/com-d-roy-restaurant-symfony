@@ -46,8 +46,8 @@ class RegisterController extends AbstractController
             $this->entityManager->flush();
 
             $mail = new Mail();
-            $content = "Bonjour ".$user->getFirstName()."<br/>Bienvenue sur la première Boutique dédiée à la mode in France.<br /> Vive les tulipes";
-            $mail->send($user->getEmail(), $user->getFirstName(), 'Bienvenue sur ma boutique', $content);
+            $content = "Bonjour ".$user->getFirstName()."<br/>bienvenue au restaurant Com D Roy<br />";
+            $mail->send($user->getEmail(), $user->getFirstName(), 'Vous êtes chez vous', $content);
 
             $notification = " Votre inscription s'est bien déroulée. Vous pouvez vous connecter à votre compte.";
         } else {
