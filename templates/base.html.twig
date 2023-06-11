@@ -6,12 +6,11 @@
 			{% block title %}Welcome!
 			{% endblock %}
 		</title>
-		<link
-		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+		<script src="https://kit.fontawesome.com/c971cac520.js" crossorigin="anonymous"></script>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
-            {# Load specific css for menu-carte #}
+			{# Load specific css for menu-carte #}
 			{% if app.request.pathinfo == '/produits/' %}
 				{{ encore_entry_link_tags('menu-carte') }}
 			{% endif %}
@@ -22,7 +21,10 @@
 		{% endblock %}
 	</head>
 	<body>
-		{% include 'components/header.html.twig' %}
-		{% block body %}{% endblock %}
+		<header>
+			{% include 'components/navbar.html.twig' %}
+			{% include 'components/header.html.twig' %}
+			{% block body %}{% endblock %}
+		</header>
 	</body>
 </html>

@@ -1,0 +1,73 @@
+    <nav class="navbar">
+        {# <link href="../src/style/navbar.css" rel="stylesheet"> #}
+
+        <div class="dropdown__menu_burger">
+            <div class="navbar__menu_burger">
+                <span class="navbar__menu_burger_topBar"></span>
+                <span class="navbar__menu_burger_middleBar"></span>
+                <span class="navbar__menu_burger_bottomBar"></span>
+            </div>
+            <div class="dropdown__menu_burger-choises">
+                <a href="../pages/accueil.html" class="dropdown__burger-choice">
+                    <p>Accueil</p>
+                </a>
+                <a href="../pages/reservation.html" class="dropdown__burger-choice">
+                    <p>Réservation</p>
+                </a>
+                <a href="../pages/menu-carte.html" class="dropdown__burger-choice">
+                    <p>Menu & Carte</p>
+                </a>
+                <a href="#" class="dropdown__burger-choice">
+                    <p>L'Equipe</p>
+                </a>
+                <a href="#" class="dropdown__burger-choice">
+                    <p>Informations</p>
+                </a>
+                <a href="../pages/contact.html" class="dropdown__burger-choice">
+                    <p>Contact</p>
+                </a>
+            </div>
+        </div>
+
+        <a href="../pages/accueil.html">
+            <div class="navbar__logo">
+                <img class="navbar__logo_img" src="{{ asset('uploads/images/logo.jpg') }}" alt="logo">
+            </div>
+        </a>
+
+        <div class="navbar__icones">
+
+            <div class="navbar__icone_link">
+                <div class="navbar__icones_languages">
+                    <img src="{{ asset('uploads/images/frenchflagframed.svg') }}" alt="Français">
+                    <span></span>
+                    <img src="{{ asset('uploads/images/united-kingdom-flag-icon.svg') }} " alt="English">
+                </div>
+                <div class="dropdown__language-option">
+                    <a href="#" class="dropdown__language-linkFR">Français</a>
+                    <span></span>
+                    <a href="#" class="dropdown__language-linkEN">English</a>
+                </div>
+            </div>
+
+            <a href="../pages/reservation.html" class="navbar__icone_link">
+                <div class="navbar__icones_reservation">
+                    <i class="fa-solid fa-calendar fa-2xl"></i>
+                </div>
+            </a>
+
+            <a href="#" class="navbar__icone_link">
+                <div class="navbar__icones_gift">
+                    <i class="fa-solid fa-gift fa-2xl"></i>
+                </div>
+            </a>
+
+            <a href="#" class="navbar__icone_link">
+                <div class="navbar__icones_connexion">
+                    <i class="fa-regular fa-user fa-2xl"></i>
+                </div>
+            </a>
+
+        </div>
+
+    </nav>
