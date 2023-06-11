@@ -1,3 +1,6 @@
+{% set encartText = "Inconnu" %}
+{% set pathImg = '/uploads/images/accueil/acceuil-principal.jpg' %}
+
 {% if app.request.pathinfo == '/produits/' %}
 	{% set encartText = "Carte & Menu" %}
 	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
@@ -6,6 +9,7 @@
 	{% set encartText = "Accueil" %}
 	{% set pathImg = '/uploads/images/accueil/acceuil-principal.jpg' %}
 {% endif %}
+
 
 <img src='{{ pathImg }}' alt='{{ encartText }}' class="image"/>
 <div class="menu-encart-cadre">

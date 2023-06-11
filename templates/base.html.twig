@@ -10,10 +10,6 @@
 		<script src="https://kit.fontawesome.com/c971cac520.js" crossorigin="anonymous"></script>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
-			{# Load specific css for menu-carte #}
-			{% if app.request.pathinfo == '/produits/' %}
-				{{ encore_entry_link_tags('menu-carte') }}
-			{% endif %}
 		{% endblock %}
 
 		{% block javascripts %}
