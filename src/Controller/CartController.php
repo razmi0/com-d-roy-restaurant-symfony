@@ -13,7 +13,8 @@ class CartController extends AbstractController
 {
     private $entityManager;
 
-    public function __construct(EntityManagerInterface $entityManager) {
+    public function __construct(EntityManagerInterface $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 
@@ -22,6 +23,7 @@ class CartController extends AbstractController
     public function index(Cart $cart): Response
     {
         $cartComplete = [];
+        $cartLength = 0;
 
         foreach ($cart->get() as $id => $quantity) {
             $cartComplete[] = [
@@ -29,10 +31,9 @@ class CartController extends AbstractController
                 'quantity' => $quantity
             ];
         }
-
         return $this->render('cart/index.html.twig', [
-           'cart'=> $cartComplete
-            ]);
+            'cart' => $cartComplete,
+        ]);
     }
 
     #[Route('/cart/add/{id}', name: 'add_to_cart')]

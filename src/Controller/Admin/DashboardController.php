@@ -16,7 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
-    public function __construct(private AdminUrlGenerator $adminUrlGenerator) {
+    public function __construct( AdminUrlGenerator $adminUrlGenerator) {
     }
 
     #[Route('/admin', name: 'admin')]
