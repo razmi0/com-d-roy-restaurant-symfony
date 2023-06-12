@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+  }
+  
+  /* Barre de navigation principale */
+  .navbar {
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+  }
+  
+  /* Conteneur des icônes de la barre de navigation */
+  .navbar__icones {
+    display: flex;
+    flex-direction: row;
+    width: 340px;
+    margin-right: 2%;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Conteneur du menu burger (pour les appareils mobiles) */
+  .dropdown__menu_burger {
+    margin-left: 5%;
+    height: 100%;
+  }
+  
+  /* Menu burger */
+  .navbar__menu_burger {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Traits du menu burger */
+  .navbar__menu_burger > span {
+    height: 4px;
+    background-color: black;
+    width: 40px;
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 5px;
+  }
+  
+  /* Logo de la barre de navigation */
+  .navbar__logo_img {
+    display: block;
+    max-height: 70px;
+  }
+  
+  /* Conteneur des drapeaux de langue */
+  .navbar__icones_languages {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 5px;
+    height: 100px;
+  }
+  
+  /* Traits séparateurs des drapeaux de langue */
+  .navbar__icones_languages > span {
+    background-color: black;
+    border-radius: 2px;
+    height: 30px;
+    width: 2px;
+    margin-left: 9px;
+    margin-right: 9px;
+  }
+  
+  /* Icônes des drapeaux de langue */
+  .navbar__icones_languages > img {
+    height: 15px;
+    border-radius: 2px;
+    border: 2px solid black;
+  }
+  
+  /* Icône de connexion */
+  .navbar__icones_connexion {
+    margin-right: 10px;
+  }
+  
+  /* Lien de l'icône */
+  .navbar__icone_link {
+    background: none;
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Animation au survol de l'icône */
+  .navbar__icone_link:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+  
+  /* Taille des icônes */
+  .navbar__icones i {
+    font-size: 1.5rem;
+  }
+  
+  /* Animation du menu burger au survol */
+  .navbar__menu_burger:hover > .navbar__menu_burger_topBar {
+    transform: rotate(45deg) translateY(12px);
+    transition: 0.5s;
+  }
+  
+  /* Animation du menu burger au survol */
+  .navbar__menu_burger:hover > .navbar__menu_burger_bottomBar {
+    transform: rotate(135deg) translateY(12px);
+    transition: 0.5s;
+  }
+  
+  /* Animation du menu burger au survol */
+  .navbar__menu_burger:hover > .navbar__menu_burger_middleBar {
+    display: none;
+  }
+  
+  /* Options du menu déroulant des langues */
+  .dropdown__language-option {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    width: 90px;
+    font-weight: 600;
+    opacity: 80%;
+  }
+  
+  /* Liens des options du menu déroulant des langues */
+  .dropdown__language-option a {
+    text-decoration: none;
+    color: white;
+    padding: 4px;
+    width: 100%;
+  }
+  
+  /* Animation au survol des liens du menu déroulant des langues */
+  .dropdown__language-option a:hover {
+    background-color: darkgrey;
+  }
+  
+  /* Traits séparateurs du menu déroulant des langues */
+  .dropdown__language-option span {
+    background-color: white;
+    height: 2px;
+    width: 90%;
+  }
+  
+  /* Options du menu déroulant du menu burger */
+  .dropdown__menu_burger-choises {
+    display: flex;
+    position: absolute;
+    z-index: -1;
+    top: -50px;
+    width: 100%;
+    left: 0px;
+    flex-direction: row nowrap;
+    justify-content: space-between;
+    opacity: 80%;
+    background-color: gray;
+  }
+  
+  /* Liens des options du menu déroulant du menu burger */
+  .dropdown__menu_burger-choises > a {
+    display: flex;
+    width: 20%;
+    justify-content: center;
+  }
+  
+  /* Style de l'élément actif */
+  .active {
+    top: 100px;
+    transition: 0.4s ease-in-out;
+    background-color: white;
+  }
+  
+  /* Liens du menu déroulant du menu burger */
+  .dropdown__menu_burger-choises a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+  }
+  
+  /* Liens du menu burger */
+  .dropdown__menu_burger > a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  /* Animation au survol des liens du menu déroulant du menu burger */
+  .dropdown__menu_burger-choises > a:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+    background-color: #d0cdc2;
+  }
+  
+  /* Affichage */
+  .show {
+    display: flex;
+  }
+  
+  /*--------------------*/
+  /*- media query part -*/
+  /*--------------------*/
+  
+  @media (max-width: 992px) {
+    .navbar__icones {
+      width: 40%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar__icones {
+      width: 25%;
+    }
+  
+    .navbar__icones_reservation,
+    .navbar__icones_gift,
+    .navbar__icones_cart {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar__icones {
+      width: 35%;
+    }
+  
+    .navbar__icones_reservation,
+    .navbar__icones_gift,
+    .navbar__icones_cart {
+      display: none;
+    }
+  }
+  

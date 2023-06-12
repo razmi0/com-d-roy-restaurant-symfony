@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Item;
+use App\Repository\CategoryRepository;
 use App\Repository\ItemRepository;
 use App\Form\ItemType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,19 +17,18 @@ class ItemController extends AbstractController
 {
     private $entityManager;
 
-    public function __construct(EntityManagerInterface  $entityManager)
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;
     }
 
     #[Route('/', name: 'app_item_index', methods: ['GET'])]
-    public function index(ItemRepository $itemRepository): Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
-        $items = $this->entityManager->getRepository(Item::class)->findAll();
-
+        $category_items = $categoryRepository->getCategoriesIndexedItems();
 
         return $this->render('item/index.html.twig', [
-            'items' => $items
+            'products' => $category_items,
         ]);
     }
 
@@ -37,7 +37,7 @@ class ItemController extends AbstractController
     {
         $item = $this->entityManager->getRepository(Item::class)->findOneBySlug($slug);
 
-        if(!$item) {
+        if (!$item) {
             return $this->redirectToRoute('app_item_index');
         }
 
@@ -87,7 +87,7 @@ class ItemController extends AbstractController
     #[Route('/{id}', name: 'app_item_delete', methods: ['POST'])]
     public function delete(Request $request, Item $item, ItemRepository $itemRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$item->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $item->getId(), $request->request->get('_token'))) {
             $itemRepository->remove($item, true);
         }
 

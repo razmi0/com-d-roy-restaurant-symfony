@@ -1,0 +1,49 @@
+body {
+  font-family: "Lora", serif;
+}
+
+/* Partie 1: Header */
+/* Styles du header */
+header {
+  position: relative;
+}
+a {
+  text-decoration: none;
+  appearance: none;
+  color: initial;
+}
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Styles de l'encart du menu */
+.menu-encart-cadre {
+  position: relative;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  padding: 2% 5% 2% 5%;
+  border: 2px solid #d0cdc2;
+  background-color: white;
+  overflow: hidden; /* Masquer le contenu débordant */
+  width: calc(
+    80vw - 20px
+  ); /* Définir une largeur en fonction de la largeur de la fenêtre moins les marges */
+  max-width: 400px; /* Définir une largeur maximale pour l'encart */
+
+  margin : 10px;
+  margin-top : -40px;
+}
+
+/* Style du texte dans l'encart */
+.menu-encart-texte {
+  font-size: calc(
+    2vw + 50%
+  ); /* Définir une taille de police en fonction de la largeur de la fenêtre */
+  text-align: center;
+  white-space: nowrap; /* Empêcher le texte de passer à la ligne */
+  text-overflow: ellipsis; /* Afficher les points de suspension (...) si le texte dépasse */
+}

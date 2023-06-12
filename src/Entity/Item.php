@@ -34,7 +34,7 @@ class Item
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'item')]
     private Collection $categories;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 50, nullable: true)]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
@@ -138,7 +138,11 @@ class Item
 
     public function setSlug(string $slug): self
     {
-        $this->slug = $slug;
+        $lowercaseSlug = strtolower($slug);
+        $hyphenatedSlug = preg_replace('/\s+/', '-', $lowercaseSlug);
+        $noslashSlug = preg_replace('/\//','', $hyphenatedSlug);
+        $sanitizedSlug = filter_var($noslashSlug, FILTER_SANITIZE_URL);
+        $this->slug = $sanitizedSlug;
 
         return $this;
     }
