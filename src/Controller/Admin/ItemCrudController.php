@@ -30,7 +30,7 @@ class ItemCrudController extends AbstractCrudController
                 ->setRequired(false),
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('EUR')->setStoredAsCents(false),
-            AssociationField::new('categories')
+            AssociationField::new('category')
         ];
     }
 }
