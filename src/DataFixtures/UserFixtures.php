@@ -32,7 +32,7 @@ class UserFixtures extends Fixture
             } else {
                 $users[$i]->setFirstname('admin');
                 $users[$i]->setLastname('admin');
-                $users[$i]->setEmail('aaa@gmail.com');
+                $users[$i]->setEmail('comdroy@gmail.com');
                 $users[$i]->setPassword($this->hasher->hashPassword($users[$i], $admin_password));
                 $users[$i]->setRoles(['ROLE_ADMIN']);
             }
