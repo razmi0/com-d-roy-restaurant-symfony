@@ -1,13 +1,13 @@
 {% set encartText = "Inconnu" %}
 {% set pathImg = '/uploads/images/accueil/acceuil-principal.jpg' %}
 
-{% if app.request.pathinfo == '/produits/' %}
-	{% set encartText = "Carte & Menu" %}
-	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
-{% endif %}
-{% if app.request.pathinfo == '/homepage/' %}
+{% if app.request.pathinfo == '/' %}
 	{% set encartText = "Accueil" %}
 	{% set pathImg = '/uploads/images/accueil/acceuil-principal.jpg' %}
+{% endif %}
+{% if app.request.pathinfo == '/carte' %}
+	{% set encartText = "Carte & Menu" %}
+	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
 {% endif %}
 
 
