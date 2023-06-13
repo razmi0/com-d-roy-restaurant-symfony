@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20230611112739 extends AbstractMigration
+final class Version20230613110759 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,6 +26,6 @@ final class Version20230611112739 extends AbstractMigration
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE item CHANGE slug slug VARCHAR(50) NOT NULL');
+        $this->addSql('ALTER TABLE item CHANGE slug slug VARCHAR(150) DEFAULT NULL');
     }
 }

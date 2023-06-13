@@ -34,7 +34,7 @@ class CategoryFixtures extends Fixture
     public const CATEGORY_REFERENCE_24 = 'BLANC SEC'; //
     public const CATEGORY_REFERENCE_25 = 'ROSE'; //
     public const CATEGORY_REFERENCE_26 = 'APERITIF'; //
-
+    
 
 
 
