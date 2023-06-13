@@ -3,12 +3,11 @@
 {% block title %}Hello RegisterController!{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <h1>Inscription </h1>
 
     {% if notification %}
     <div class="alert alert-info">{{ notification }}</div>
     {% endif %}
-
 
     {{ form(form) }}
 {% endblock %}
