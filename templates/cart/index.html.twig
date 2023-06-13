@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% set total_quantity = 0 %}
+
 {% block title %}Mon panier - Com D Roy{% endblock %}
 
 {% block body %}
@@ -7,7 +9,7 @@
     <h1>Mon panier</h1>
     <p>Retrouver l'ensemble de vos produits</p>
 
-    {% if cart | length > 0 %}
+    {% if cart | length %}
     <table class="table mt-3">
         <thead>
         <tr>
@@ -46,19 +48,20 @@
             </td>
         </tr>
         {% set total = total + (item.item.price * item.quantity ) %}
+        {% set total_quantity = total_quantity + item.quantity %}
         {% endfor %}
         </tbody>
 
     </table>
     <div class="text-right">
-        <b class="text-white">Nombre de produits :  {{ cart | length }} </b> <br/>
-        <b class="text-white">Total de mon panier : {{ ( total) }} €</b><br />
+        <b class="">Nombre de produits :  {{ total_quantity }} </b> <br/>
+        <b class="">Total de mon panier : {{ ( total) }} €</b><br />
 
         <a href="" class="btn btn-success btn-black mt-4">Valider mon panier</a>
     </div>
     {% else %}
         <hr>
-        <b class="text-white">Votre panier est vide</b>
+        <b class="">Votre panier est vide</b>
     {% endif %}
 
 {% endblock %}
