@@ -8,7 +8,7 @@
 /* ---------LES STYLES DU NAVBAR-------- */
 /* ---------LES STYLES DU FOOTER-------- */
 /* ------------------------------------- */
-* {
+:root {
 
   --primary : #8a3d2e;
   --secondary : #d0cdc2;
@@ -182,6 +182,8 @@ body {
   background: none;
   text-decoration: none;
   color: black;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* Animation au survol de l'icône */
