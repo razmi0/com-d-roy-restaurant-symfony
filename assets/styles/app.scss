@@ -2,15 +2,19 @@
 /* FICHIER CSS COMMUN A TOUTES LES PAGES */
 /* CONTIENT------------------------------*/
 /* ---------LES VARIABLES--------------- */
-/* ---------L'IMPORT BOOTSTRAP-----------*/
+/* ---------L'IMPORT BOOTSTRAP-----------*/  /* MIS EN PAUSE 13/06 => './CSS_bootstrap.scss' */
 /* ---------L'IMPORT GOOGLEFONT----------*/
 /* ---------LES STYLES DU HEADER-------- */
 /* ---------LES STYLES DU NAVBAR-------- */
 /* ---------LES STYLES DU FOOTER-------- */
 /* ------------------------------------- */
+* {
 
-$primary : #8a3d2e;
-@import "~bootstrap/scss/bootstrap";
+  --primary : #8a3d2e;
+  --secondary : #d0cdc2;
+  --tertiary : #f2f2f2;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 
@@ -48,7 +52,7 @@ a {
   width: calc(
     80vw - 20px
   ); /* Définir une largeur en fonction de la largeur de la fenêtre moins les marges */
-  max-width: 400px; /* Définir une largeur maximale pour l'encart */
+  max-width: 500px; /* Définir une largeur maximale pour l'encart */
 
   margin : 10px;
   margin-top : -40px;
@@ -64,7 +68,14 @@ a {
   text-overflow: ellipsis; /* Afficher les points de suspension (...) si le texte dépasse */
 }
 
-/* NAVBAR */
+
+/* ******************************/
+/* ******************************/
+/* ************* NAVBAR *********/
+/* ******************************/
+/* ******************************/
+
+
 
 * {
   margin: 0;

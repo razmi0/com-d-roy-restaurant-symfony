@@ -9,6 +9,10 @@
 	{% set encartText = "Carte & Menu" %}
 	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
 {% endif %}
+{% if app.request.pathinfo == '/mon-panier' %}
+	{% set encartText = "Cave à vins" %}
+	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
+{% endif %}
 
 
 <img src='{{ pathImg }}' alt='{{ encartText }}' class="image"/>

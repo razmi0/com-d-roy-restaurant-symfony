@@ -40,14 +40,18 @@ class CategoryRepository extends ServiceEntityRepository
         }
     }
 
+    // Methode récuperant les items indexés par catégorie 
     public function getCategoriesIndexedItems(): array
     {
         $arr_category_items = [];
         $category = $this->findAll();
         foreach ($category as $cat) {
-            // category name => items
+            // Nom de la catégorie
             $categoryName = $cat->getName();
+            // Items de la catégorie
             $items = $cat->getItem()->getValues();
+            // Rajout des catégorie et leurs items correspondants dans un tableau
+            // [catégorie => [items]]
             $arr_category_items[$categoryName] = $items;
         }
         return $arr_category_items;

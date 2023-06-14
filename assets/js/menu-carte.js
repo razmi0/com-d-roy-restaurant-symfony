@@ -4,8 +4,6 @@
 
 import "../styles/menu-carte.scss";
 
-// start the Stimulus application
-import "../bootstrap";
 
 //--
 // Vanilla JS

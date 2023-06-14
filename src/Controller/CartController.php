@@ -4,10 +4,11 @@ namespace App\Controller;
 
 use App\Classe\Cart;
 use App\Entity\Item;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CartController extends AbstractController
 {
@@ -20,19 +21,29 @@ class CartController extends AbstractController
 
     #[Route('/mon-panier', name: 'cart')]
 
-    public function index(Cart $cart): Response
+    public function index(Cart $cart, CategoryRepository $categoryRepository): Response
     {
         $cartComplete = [];
-        $cartLength = 0;
+        $boissons = [];
 
-        foreach ($cart->get() as $id => $quantity) {
-            $cartComplete[] = [
-                'item' => $this->entityManager->getRepository(Item::class)->findOneById($id),
-                'quantity' => $quantity
-            ];
+        $category_items = $categoryRepository->getCategoriesIndexedItems();
+        dump($category_items);
+        for($i = 0; $i < count($category_items['Vin']); $i++) {
+            array_push($boissons, $category_items['Vin'][$i]);
+        }
+        dump($boissons);
+
+        if ($cart->get()) {
+            foreach ($cart->get() as $id => $quantity) {
+                $cartComplete[] = [
+                    'item' => $this->entityManager->getRepository(Item::class)->findOneById($id),
+                    'quantity' => $quantity
+                ];
+            }
         }
         return $this->render('cart/index.html.twig', [
             'cart' => $cartComplete,
+            'boissons' => $boissons
         ]);
     }
 
@@ -72,5 +83,6 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute('cart');
     }
+
 
 }
