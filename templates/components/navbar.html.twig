@@ -62,12 +62,23 @@
                 </div>
             </a>
 
-            <a href="#" class="navbar__icone_link">
+            <a href="{{ path('app_register') }}" class="navbar__icone_link">
                 <div class="navbar__icones_connexion">
-                    <i class="fa-regular fa-user fa-2xl"></i>
+                    <i class=""></i>
                 </div>
             </a>
 
+            {% if app.user %}
+                <a href="{{ path('app_account') }}">Mon compte<small>({{ app.user.firstname }})</small></a> | <a href="{{ path('app_logout') }}"><i class="fa-solid fa-user-slash fa-2xl"></i></a>
+            {% else %}
+                <a href="{{ path('app_login') }}"><i class="fa-regular fa-user fa-2xl"></i></a> | <a href="{{ path('app_register') }}">Inscription</a>
+            {% endif %}
+
+            <a href="{{ path('app_logout') }}" class="navbar__icone_link_logout">
+                <div class="navbar__icones_deconnexion">
+                    <i class=""></i>
+                </div>
+            </a>
         </div>
 
     </nav>
