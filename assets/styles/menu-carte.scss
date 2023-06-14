@@ -247,3 +247,8 @@ ul {
 .btn-block-list:hover {
   cursor : pointer;
 }
+
+.btn:hover {
+  background-color: #735e5d;
+  transition: background-color 100ms ease;
+}

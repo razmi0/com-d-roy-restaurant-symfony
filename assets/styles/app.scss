@@ -2,7 +2,7 @@
 /* FICHIER CSS COMMUN A TOUTES LES PAGES */
 /* CONTIENT------------------------------*/
 /* ---------LES VARIABLES--------------- */
-/* ---------L'IMPORT BOOTSTRAP-----------*/  /* MIS EN PAUSE 13/06 => './CSS_bootstrap.scss' */
+/* ---------L'IMPORT BOOTSTRAP-----------*/  /* MIS EN PAUSE PAR DEFAULT 13/06 => './CSS_bootstrap.scss' */
 /* ---------L'IMPORT GOOGLEFONT----------*/
 /* ---------LES STYLES DU HEADER-------- */
 /* ---------LES STYLES DU NAVBAR-------- */
@@ -18,6 +18,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 
+
 body {
   font-family: "Lora", serif;
 }
@@ -28,15 +29,17 @@ header {
   position: relative;
 }
 a {
-  text-decoration: none;
-  appearance: none;
-  color: initial;
+  text-decoration: none !important;
+  appearance: none !important;
+  color: initial !important;
 }
 .image {
   display: block;
   width: 100%;
   height: auto;
 }
+
+
 
 /* Styles de l'encart du menu */
 .menu-encart-cadre {
@@ -463,6 +466,12 @@ h3 {
 .liensFooter li {
   display: inline-block;
   margin: 0 10px;
+
+}
+
+.footer-link {
+  text-decoration: underline !important;
+  color : blanchedalmond !important;
 }
 
 /* Conteneur du bas */
@@ -495,4 +504,3 @@ h3 {
     margin-left: 25%;
   }
 }
-
