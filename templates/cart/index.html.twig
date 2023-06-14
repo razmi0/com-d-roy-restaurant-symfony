@@ -32,9 +32,9 @@
 						<a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link">
 							{{ boisson | dots }}
 						</a>
-						<a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link ms-5">
+						{# <a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link ms-5">
 							<img src="{{ asset('assets/add.png') }}" height="18px" alt="ajouter un produit">
-						</a>
+						</a> #}
 					</div>
 				{% endfor %}
 			</div>

@@ -25,6 +25,7 @@ Encore
     .addEntry('menu-carte', './assets/js/menu-carte.js')
     .addEntry('accueil', './assets/js/accueil.js')
     .addEntry('panier', './assets/js/panier.js')
+    .addEntry('contact', './assets/js/contact.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

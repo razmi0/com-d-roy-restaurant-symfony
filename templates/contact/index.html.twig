@@ -4,11 +4,13 @@
 {% endblock %}
 
 {% block stylesheets %}
+	{{ encore_entry_link_tags('CSS_bootstrap') }}
 	{{ parent() }}
-	{{ encore_entry_link_tags('contact') }}}
+	{{ encore_entry_link_tags('contact') }}
 {% endblock %}
 
 {% block javascripts %}
+	{{ encore_entry_script_tags('CSS_bootstrap') }}
 	{{ parent() }}
 	{{ encore_entry_script_tags('contact') }}
 {% endblock %}

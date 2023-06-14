@@ -29,7 +29,7 @@ class CategoryCrudController extends AbstractCrudController
                 ->setUploadedFileNamePattern('[randomhash],[extension]')
                 ->setRequired(false),
                 // TODO ADD MARGIN BOTTOM
-            AssociationField::new('item')->onlyOnForms()->autocomplete(),
+            AssociationField::new('item')->autocomplete(),
             // ArrayField::new('item')->onlyOnForms(),
         ];
     }
