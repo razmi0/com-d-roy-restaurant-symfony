@@ -26,6 +26,7 @@ Encore
     .addEntry('accueil', './assets/js/accueil.js')
     .addEntry('panier', './assets/js/panier.js')
     .addEntry('contact', './assets/js/contact.js')
+    .addEntry('cgu', './assets/js/cgu.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

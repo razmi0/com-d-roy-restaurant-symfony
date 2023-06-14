@@ -25,8 +25,8 @@
 
 		{# AFFICHAGE DES BOISSONS #}
 
-		<div class="menu-colonne-gauche mb-5 p-3">
-			<div class=" bordered-content p-3">
+		<div class="menu-colonne-gauche">
+			<div class=" bordered-content">
 				{% for boisson in boissons %}
 					<div class="menu-gauche-donnees">
 						<a href="{{ path('add_to_cart' , {id : boisson.id }) }}" class="panier-boisson-link">
@@ -42,7 +42,7 @@
 
 		{# AFFICHAGE DU PANIER #}
 
-		<div class="menu-colonne-droite mb-5 p-3">
+		<div class="menu-colonne-droite">
 		
 			<div class="menu-navigation " {# TODO RAJOUTER STYCKY ICI #}> 
 				<h1>Mon panier</h1>
