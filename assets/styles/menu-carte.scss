@@ -20,11 +20,14 @@
   text-align: center;
   padding: 10px;
   color: white;
+  padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 .bordered-content {
   border: 1px solid white;
   border-radius: 10px;
+  padding: 1rem;
 }
 
 /* Styles de la colonne de droite */
@@ -35,6 +38,8 @@
   box-sizing: border-box;
   margin-left: 5%;
   background-color: #d0cdc2;
+  padding: 1rem;
+  margin-bottom: 3rem;
 }
 
 /* Partie 3: Style pour le contenu de la colonne de gauche */
@@ -246,4 +251,9 @@ ul {
 }
 .btn-block-list:hover {
   cursor : pointer;
+}
+
+.btn:hover {
+  background-color: #735e5d;
+  transition: background-color 100ms ease;
 }

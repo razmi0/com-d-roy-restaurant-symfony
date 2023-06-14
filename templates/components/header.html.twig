@@ -13,6 +13,18 @@
 	{% set encartText = "Cave à vins" %}
 	{% set pathImg = '/uploads/images/carte/menu-carte.jpg' %}
 {% endif %}
+{% if app.request.pathinfo == '/contact' %}
+	{% set encartText = "Contact" %}
+	{% set pathImg = '/uploads/images/contact/accueil-ligne1-4.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/cgu' %}
+	{% set encartText = "CGU" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-2.JPG' %}
+{% endif %}
+{% if app.request.pathinfo == '/mentions-legales' %}
+	{% set encartText = "Mentions Légales" %}
+	{% set pathImg = '/uploads/images/accueil/accueil-ligne2-3.JPG' %}
+{% endif %}
 
 
 <img src='{{ pathImg }}' alt='{{ encartText }}' class="image"/>

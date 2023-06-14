@@ -49,7 +49,7 @@
 				<p>Retrouver l'ensemble de vos produits</p>
 				{% if cart | length %}
                 <ul class="menu-navbar">
-					<table class="table mt-3">
+					<table  class="table mt-3 me-1">
 						<thead class="color-primary">
 							<tr>
 								<th scope="col">Produit</th>
@@ -63,9 +63,11 @@
 							{% set total = null %}
 							{% for item in cart %}
 								<tr>
+								{% if item.item.picture %}
 									<th>
 										<img src="/uploads/{{ item.item.picture }}" alt="{{ item.item.name }}" height="55px"><br/>
 									</th>
+									{% endif %}
 									<td>{{ item.item.name }}<br/>
 										<small>{{ item.item.description }}</small>
 									</td>

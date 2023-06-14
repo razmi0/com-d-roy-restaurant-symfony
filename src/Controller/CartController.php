@@ -27,11 +27,9 @@ class CartController extends AbstractController
         $boissons = [];
 
         $category_items = $categoryRepository->getCategoriesIndexedItems();
-        dump($category_items);
         for($i = 0; $i < count($category_items['Vin']); $i++) {
             array_push($boissons, $category_items['Vin'][$i]);
         }
-        dump($boissons);
 
         if ($cart->get()) {
             foreach ($cart->get() as $id => $quantity) {
